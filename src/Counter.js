@@ -1,3 +1,4 @@
+import { toBeDisabled } from "@testing-library/jest-dom/matchers";
 import { useState } from "react";
 
 
@@ -12,10 +13,12 @@ const Counter = () => {
 
   const decrement = () => {
     setcounter(counter - 1)
+    // toBeDisabled(counter === 0)
   }
 
   const resetCounter = () => {
     setcounter(0)
+    // toBeDisabled(counter === 0)
   }
 
   const close = () => {
@@ -40,8 +43,8 @@ const Counter = () => {
           <button className="btn btn-danger p-4 m-3" style={{ width: "150px", borderRadius: "10px" }} onClick={resetCounter}>Reset</button>
         </div>
       </div> : <div>
-        <h3>Application Closed</h3>
-        <button className="btn btn-danger" onClick={close}>Open App</button>
+        <h3 className="text-center"  style={{position:"relative", top:"30px", left: "30px"}}>Application Closed</h3>
+        <button className="btn btn-danger text-center m-5" style={{ width: "150px", borderRadius: "10px" }} onClick={close}>Open App</button>
       </div>}
 
     </div>
