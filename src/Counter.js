@@ -1,4 +1,5 @@
 import { toBeDisabled } from "@testing-library/jest-dom/matchers";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 import { useState } from "react";
 
 
@@ -11,14 +12,12 @@ const Counter = () => {
     setcounter(counter + 1)
   }
 
-  const decrement = () => {
+  const decrement = () => { 
     setcounter(counter - 1)
-    // toBeDisabled(counter === 0)
   }
 
   const resetCounter = () => {
-    setcounter(0)
-    // toBeDisabled(counter === 0)
+    setcounter(0)  
   }
 
   const close = () => {
@@ -39,12 +38,12 @@ const Counter = () => {
         </div>
         <div className="text-center al">
           <button className="btn btn-primary p-4 m-3" style={{ width: "150px", borderRadius: "10px" }} onClick={increment}>Plus</button>
-          <button className="btn btn-dark p-4 m-3" style={{ width: "150px", borderRadius: "10px" }} onClick={decrement}>Minus</button>
-          <button className="btn btn-danger p-4 m-3" style={{ width: "150px", borderRadius: "10px" }} onClick={resetCounter}>Reset</button>
+          <button className="btn btn-dark p-4 m-3" style={{ width: "150px", borderRadius: "10px" }} onClick={decrement} disabled={counter === 0}>Minus</button>
+          <button className="btn btn-danger p-4 m-3" style={{ width: "150px", borderRadius: "10px" }} onClick={resetCounter} disabled={counter === 0}>Reset</button>
         </div>
       </div> : <div>
         <h3 className="text-center"  style={{position:"relative", top:"30px", left: "30px"}}>Application Closed</h3>
-        <button className="btn btn-danger text-center m-5" style={{ width: "150px", borderRadius: "10px" }} onClick={close}>Open App</button>
+        <button className="btn btn-danger p-3"  style={{position:"relative", top:"30px", left: "30px"}}  onClick={close}>Open App</button>
       </div>}
 
     </div>
