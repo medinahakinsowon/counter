@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const api = 'https://restcountries.com/v3.1/all';
+
+
+    const fetchData = async ()=>{
+      const response = await fetch(api)
+      const data = await response.json()
+      console.log(data)
+    }
+
+    const fetchTwo = ()=>{
+      fetch(api).then((res)=>{
+        return res.json()
+      }).then((data)=>{
+        console.log(data)
+      })
+    }
+
+
+    const helloWorld = ()=>{
+      console.log('hello world')
+    }
+
+    const helloThere = ()=>{
+      console.log('hello there')
+    }
+    
+    fetchData()
+   console.log(helloWorld())
+   console.log(helloThere())
+    
+  </script>
+</body>
+</html>
